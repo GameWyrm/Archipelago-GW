@@ -308,7 +308,7 @@ location_table: Dict[str, ID2LocationData] = {
     "Bad Dream - Card": ID2LocationData(rname.bad_dream.value, 2602, "Super Secrets"),
     "Promised Remedy - That Guy Outfit": ID2LocationData(rname.pr_b.value, 2603, "Super Secrets"),
     "Nowhere - Left Hint Sign": ID2LocationData(rname.nowhere.value, 2604, "Hint Signs"),
-    "Nowhere - Right Hint Sign": ID2LocationData(rname.nowhere.value, 2605, "Cipher Signs"),
+    "Nowhere - Right Hint Sign": ID2LocationData(rname.nowhere.value, 2605, "Hint Signs"),
     "Nowhere - Cipher Sign": ID2LocationData(rname.nowhere.value, 2606, "Cipher Signs"),
     "Ludo City - Cipher Sign": ID2LocationData(rname.ludo_city_b.value, 2607, "Cipher Signs"),
     "Abyssal Plane - Shard Hint Sign": ID2LocationData(rname.abyssal_plain.value, 2608, "Hint Signs"),
@@ -377,4 +377,3 @@ for loc_name, loc_data in location_table.items():
 for event_name, event_data in event_location_table.items():
     if event_data.location_group:
         location_name_groups.setdefault(event_data.location_group, set()).add(event_name)
-
