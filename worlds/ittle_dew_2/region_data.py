@@ -2670,7 +2670,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.s1_e:
             ID2Data(ID2Type.region),
         rname.s1_h:
-            ID2Data(ID2Type.region, [[iname.s1_key.value + "*2"]]),
+            ID2Data(ID2Type.region, [[iname.s1_key.value + "*3"]]),
         rname.s1_i:
             ID2Data(ID2Type.region),
     },
