@@ -890,7 +890,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     rname.ssc_b: {
         lname.ssc_ice_and_barrels:
         # This room is weird and you can't phase to any of the natural entities in this room.
-            ID2Data(ID2Type.location, [[iname.weapon_any.value]])
+            ID2Data(ID2Type.location, [[iname.weapon_no_force.value]])
     },
     rname.ssc_c: {
         rname.ocean_castle:
