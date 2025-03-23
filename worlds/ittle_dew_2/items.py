@@ -132,7 +132,7 @@ item_table: Dict[str, ID2ItemData] = {
     iname.lightning.value: ID2ItemData(ItemClassification.filler, 0, 144, "Bonus Items"),
     iname.meteors.value: ID2ItemData(ItemClassification.trap, 0, 145, "Traps"),
     iname.bee_onslaught.value: ID2ItemData(ItemClassification.trap, 0, 146, "Super Traps"),
-    iname.snowboarding.value: ID2ItemData(ItemClassification.trap, 0, 147, "Super Traps"),
+    # iname.snowboarding.value: ID2ItemData(ItemClassification.trap, 0, 147, "Super Traps"),
     iname.matriarch.value: ID2ItemData(ItemClassification.trap, 0, 148, "Super Traps"),
     iname.connect_ff_sc.value: ID2ItemData(ItemClassification.progression, 0, 149, "Connections"),
     iname.connect_ff_fr.value: ID2ItemData(ItemClassification.progression, 0, 150, "Connections"),
