@@ -277,13 +277,14 @@ class EarlyWeaponChoice(Choice):
     default = 0
 
 
-class HintSetting(Toggle):
-    """
-    Replaces the text of various NPCs and the ten Note To Self signs with hints on barren or valuable regions, or
-    locations of certain items. Note To Self sign hints will be more valuable than NPC hints.
-    """
-    internal_name = "hint_setting"
-    display_name = "Hints"
+# TODO will be implemented later
+# class HintSetting(Toggle):
+    # """
+    # Replaces the text of various NPCs and the ten Note To Self signs with hints on barren or valuable regions, or
+    # locations of certain items. Note To Self sign hints will be more valuable than NPC hints.
+    # """
+    # internal_name = "hint_setting"
+    # display_name = "Hints"
 
 
 class MajorDungeonSkips(Toggle):
@@ -405,7 +406,7 @@ class SuperTrapPercentage(Range):
     """
     Percentage of filler items replaced with the following particularly debilitating traps:
     Bee Onslaught
-    Free Range Snowboarding Trap
+    Matriarch Trap
     """
     internal_name = "super_trap_percentage"
     display_name = "Debilitating Trap Percentage"
@@ -458,7 +459,7 @@ class ID2Options(PerGameCommonOptions):
     randomize_roll: RandomizeRoll
     roll_opens_chests: RollOpensChests
     early_weapon_choice: EarlyWeaponChoice
-    hint_setting: HintSetting
+    # hint_setting: HintSetting
     major_dungeon_skips: MajorDungeonSkips
     phasing_setting: PhasingSetting
     phasing_enemies: PhasingEnemies
