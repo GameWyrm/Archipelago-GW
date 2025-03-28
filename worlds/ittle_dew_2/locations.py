@@ -322,8 +322,7 @@ location_table: Dict[str, ID2LocationData] = {
     "Promised Remedy - G Middle Cipher Sign": ID2LocationData(rname.pr_g.value, 2616, "Cipher Signs"),
     "Promised Remedy - G Right Cipher Sign": ID2LocationData(rname.pr_g.value, 2617, "Cipher Signs"),
     "Promised Remedy - M Cipher Sign": ID2LocationData(rname.pr_m.value, 2618, "Cipher Signs"),
-    "Promised Remedy - N Cipher Sign": ID2LocationData(rname.pr_n.value, 2619, "Cipher Signs"),
-    "Promised Remedy - NAAQ BLX Sign": ID2LocationData(rname.pr_q.value, 2620, "Cipher Signs")
+    "Promised Remedy - N Cipher Sign": ID2LocationData(rname.pr_n.value, 2619, "Cipher Signs")
 }
 
 event_location_table: Dict[str, ID2LocationData] = {
