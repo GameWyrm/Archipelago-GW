@@ -339,7 +339,7 @@ class LocationNames(str, Enum):
     sign_pr_g_right_cipher = "Promised Remedy - G Right Cipher Sign"
     sign_pr_m_cipher = "Promised Remedy - M Cipher Sign"
     sign_pr_n_cipher = "Promised Remedy - N Cipher Sign"
-    sign_pr_tippsie_cipher = "Promised Remedy - NAAQ BLX Sign"
+    # sign_pr_tippsie_cipher = "Promised Remedy - NAAQ BLX Sign"
 
     # Event Locations
     event_fire_sword = "Received Fire Sword"
