@@ -2766,8 +2766,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
         rname.s1_i:
             ID2Data(ID2Type.region),
         rname.s1_q_right:
-            ID2Data(ID2Type.region, [[iname.ice.value],
-                                     [iname.can_phase_object.value]]),
+            ID2Data(ID2Type.region, [[iname.can_phase_object.value]]),
     },
     rname.s1_q_right: {
         lname.s1_q_blocks:
