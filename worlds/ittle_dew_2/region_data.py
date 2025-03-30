@@ -5277,8 +5277,8 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
             ID2Data(ID2Type.region, [[iname.efcs.value]]),
     },
     rname.pr_q: {
-        lname.sign_pr_tippsie_cipher:
-            ID2Data(ID2Type.location),
+        # lname.sign_pr_tippsie_cipher:
+            # ID2Data(ID2Type.location),
         rname.pr_k_bottom:
             ID2Data(ID2Type.region, [[iname.efcs.value]]),
         rname.pr_p:
