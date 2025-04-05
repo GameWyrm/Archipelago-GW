@@ -3556,7 +3556,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     rname.df_y: {
         rname.df_k_center:
             ID2Data(ID2Type.region, [[iname.df_se_generator.value, iname.df_sw_generator.value,
-                                      iname.df_sw_circuit.value],
+                                      iname.df_sw_circuit.value, iname.df_se_circuit.value],
                                      [iname.can_phase_doors.value]]),
         rname.df_af:
             ID2Data(ID2Type.region, [[iname.df_se_generator.value, iname.df_sw_generator.value,
