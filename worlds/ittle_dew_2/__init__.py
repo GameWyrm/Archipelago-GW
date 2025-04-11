@@ -104,6 +104,7 @@ class ID2World(World):
                 passthrough = self.multiworld.re_gen_passthrough["Ittle Dew 2"]
                 self.options.goal.value = passthrough["goal"]
                 self.options.required_potion_count = passthrough["required_potion_count"]
+                self.options.random_start = passthrough["random_start"]
                 self.options.include_portal_worlds.value = passthrough["include_portal_worlds"]
                 self.options.include_secret_dungeons.value = passthrough["include_secret_dungeons"]
                 self.options.include_dream_dungeons.value = passthrough["include_dream_dungeons"]

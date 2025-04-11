@@ -24,8 +24,7 @@ traversal_requirements: Dict[rname, Dict[Union[lname, rname], ID2Data]] = {
     # Currently vanilla start will be the only available starting location
     # For now MVP is going to move starting logical location to be Sweetwater Coast
     rname.menu: {
-        rname.fluffy_fields:
-            ID2Data(ID2Type.region)
+        # now connected via region rules
     },
     # Overworld regions
     rname.fluffy_fields: {

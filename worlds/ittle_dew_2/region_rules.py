@@ -263,6 +263,27 @@ def create_regions_with_rules(world: "ID2World") -> None:
             # print("DATA RULES:")
             # print(data.rules)
 
+    # Random start
+    start_region = rname.fluffy_fields
+    if options.random_start == 0:
+        start_region = rname.fluffy_fields
+    elif options.random_start == 1:
+        start_region = rname.sweetwater_coast
+    elif options.random_start == 2:
+        start_region = rname.fancy_ruins
+    elif options.random_start == 3:
+        start_region = rname.star_woods
+    elif options.random_start == 4:
+        start_region = rname.slippery_slope
+    elif options.random_start == 5:
+        start_region = rname.pepperpain_prairie
+    elif options.random_start == 6:
+        start_region = rname.frozen_court
+    elif options.random_start == 7:
+        start_region = rname.lonely_road_c_entrance
+    id2_regions[rname.menu].connect(connecting_region=id2_regions[start_region])
+
+
     # give the player access to fire sword and mace once they've obtained 2 and 3 progressive melees
     fire_sword_event = ID2Location(player, lname.event_fire_sword, None, id2_regions[rname.menu])
     fire_sword_event.place_locked_item(ID2Item(iname.fire_sword.value, ItemClassification.progression, None, player))

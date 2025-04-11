@@ -93,6 +93,29 @@ class ProgressiveItems(DefaultOnToggle):
     display_name = "Progressive Items"
 
 
+class RandomStart(Choice):
+    """
+    Select a random starting region. Pairs best with Block Region Connections to produce more variety
+    in the start of seeds.
+    Note that generation can fail with no starting stick and roll.
+    Fluffy Fields will start you at the vanilla location.
+    Lonely Road will start you at the exit to Slippery Slope.
+    Every other start will start you at the region's checkpoint.
+    Sweetwater Coast starts you at the north checkpoint and Pepperpain starts you at the Prairie checkpoint.
+    """
+    internal_name = "random_start"
+    display_name = "Starting Region"
+    option_ff = "Fluffy Fields"
+    option_sc = "Sweetwater Coast"
+    option_fr = "Fancy Ruins"
+    option_sw = "Star Woods"
+    option_ss = "Slippery Slope"
+    option_pp = "Pepperpain Prairie"
+    option_fc = "Frozen Court"
+    option_lr = "Lonely Road"
+    default = 0
+
+
 class IncludePortalWorlds(Toggle):
     """
     Randomizes any chests in Portal Worlds. Excludes the Super Secret Portal Worlds.
@@ -442,6 +465,7 @@ class ID2Options(PerGameCommonOptions):
     dungeon_rewards_setting: DungeonRewardsSetting
     dungeon_rewards_count: DungeonRewardsCount
     progressive_items: ProgressiveItems
+    random_start: RandomStart
     include_portal_worlds: IncludePortalWorlds
     include_secret_dungeons: IncludeSecretDungeons
     include_dream_dungeons: IncludeDreamDungeons
