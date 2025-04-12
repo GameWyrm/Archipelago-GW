@@ -105,15 +105,15 @@ class RandomStart(Choice):
     """
     internal_name = "random_start"
     display_name = "Starting Region"
-    option_ff = "Fluffy Fields"
-    option_sc = "Sweetwater Coast"
-    option_fr = "Fancy Ruins"
-    option_sw = "Star Woods"
-    option_ss = "Slippery Slope"
-    option_pp = "Pepperpain Prairie"
-    option_fc = "Frozen Court"
-    option_lr = "Lonely Road"
-    default = 0
+    option_fluffy_fields = 0
+    option_sweetwater_coast = 1
+    option_fancy_ruins = 2
+    option_star_woods = 3
+    option_slippery_slope = 4
+    option_pepperpain_prairie = 5
+    option_frozen_court = 6
+    option_lonely_road = 7
+    default = option_fluffy_fields
 
 
 class IncludePortalWorlds(Toggle):
