@@ -411,6 +411,7 @@ class ID2World(World):
             "dungeon_rewards_setting",
             "dungeon_rewards_count",
             "progressive_items",
+            "random_start",
             "include_portal_worlds",
             "include_secret_dungeons",
             "include_dream_dungeons",
