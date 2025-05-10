@@ -11,6 +11,7 @@ class RegionNames(str, Enum):
 
     # Overworld regions
     fluffy_fields = "Fluffy Fields"
+    fluffy_staff = "Fluffy Fields - Staff Area"
     sweetwater_coast = "Sweetwater Coast"
     sweetwater_hill = "Sweetwater Coast - Hill"
     fancy_ruins = "Fancy Ruins"
