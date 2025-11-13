@@ -7,7 +7,7 @@ from Options import OptionError
 from math import floor
 from Utils import visualize_regions
 from worlds.AutoWorld import World
-from id2_classes import ID2Web, ID2Item, ID2Location, Region
+from id2_classes import ID2Web, ID2Item, ID2Location, ID2Region
 from .options import ID2Options, id2_options_groups, id2_options_presets, KeySettings
 from .utility import *
 from .names_regions import RegionNames as rname
@@ -31,8 +31,8 @@ class ID2World(World):
     options: ID2Options
     options_dataclass = ID2Options
 
-    raw_requirements = List[Region]
-    traversal_requirements = List[Region]
+    raw_requirements = List[ID2Region]
+    traversal_requirements = List[ID2Region]
 
     def generate_early(self) -> None:
         self.options = Utility.clean_options(self.options)

@@ -44,7 +44,7 @@ class Location:
     requirements: List[List[str]]
 
 
-class Region:
+class ID2Region:
     name: str
     hasPits: bool
     enemies: List[str]

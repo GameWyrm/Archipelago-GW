@@ -4,7 +4,7 @@ import os
 from typing import List, Dict
 from worlds.AutoWorld import World
 from .options import ID2Options
-from .id2_classes import Region
+from .id2_classes import ID2Region
 
 
 class Utility:
@@ -82,8 +82,8 @@ class Utility:
         return piano_text
 
     @staticmethod
-    def read_region_from_file(path: str) -> List[Region]:
-        regions: List[Region]
+    def read_region_from_file(path: str) -> List[ID2Region]:
+        regions: List[ID2Region]
         folder_path = os.path.join("worlds", "ittle_dew_2", "logic", path)
         regions = jsonc.load(open(folder_path))
         return regions
