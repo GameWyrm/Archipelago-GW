@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class EnemyNames(str, Enum):
     def __str__(self):
         return self.value
@@ -81,6 +82,7 @@ class EnemyNames(str, Enum):
     snakeRed = "Candy Snake",
     snakeMoss = "Mossy Candy Snake",
     swimmyRoger = "Swimmy Roger",
+    thatGuy = "That Guy",
     titan = "Silver Titan",
     titanGold = "Gold Titan",
     volcano = "Volcano",
