@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Dict, Any
 from Options import (DefaultOnToggle, Toggle, StartInventoryPool, Choice, Range,
-                     PerGameCommonOptions, OptionGroup)
+                     PerGameCommonOptions, OptionGroup, OptionSet)
 
 
 class Goal(Choice):
@@ -286,6 +286,92 @@ class EarlyWeaponChoice(Choice):
     # internal_name = "hint_setting"
     # display_name = "Hints"
 
+# ENEMIZER
+class RandomizeEnemies(Choice):
+    """
+    Randomizes enemies, modifying logic where applicable. Enemies are placed into tiers, and will try to be replaced
+    with enemies in similar tiers depending on your difficulty setting.
+    Enemies: Only randomize standard enemies
+    Bosses: Only randomize bosses
+    Enemies and Bosses Seperate: Randomize all enemies, but make bosses only replace bosses
+    Enemies and Bosses together: Randomize all enemies, and allow bosses to replace any enemies
+    """
+    internal_name = "randomize_enemies"
+    display_name = "Randomize Enemies"
+    option_off = 0
+    option_enemies = 1
+    option_bosses = 2
+    option_all_seperate = 3
+    option_all_together = 4
+    default = 0
+
+
+class EnemizerDifficulty(Choice):
+    """
+    Determines how enemies replace each other.
+    Strict: Keep enemies in the same tier
+    Fuzzy: Allow enemies to be replaced with the tier above and below
+    Wildcard: Allow enemies to be replaced with enemies of any tier
+    ReallyJoelsDad: All enemies will be of the hardest tier. Good luck!
+    Chaos: Enemies re-randomize every time you enter a scene of any tier. As this is handled client-side, this setting DISABLES COMBAT LOGIC
+    """
+    internal_name = "enemizer_difficulty"
+    display_name = "Enemizer Difficulty"
+    option_strict = 0
+    option_fuzzy = 1
+    option_wildcard = 2
+    option_reallyjoelsdad = 3
+    option_chaos = 4
+    default = 0
+
+
+class EnemizerReplaceAll(OptionSet):
+    """
+    Oops, all Mechabuns!
+    You can specify enemies that will replace all enemies in the game.
+    If this is not empty, your Enemizer Difficulty will be ignored,
+    though your Randomize Enemies setting will be respected.
+    All enemies listed have equal weight.
+    """
+    internal_name = "enemizer_replace_all"
+    display_name = "Oops, all X!"
+    default = []
+
+
+class EnemizerLocationLogic(Toggle):
+    """
+    If on, allows replacing enemies that are required to be defeated for chests, doors, and gates.
+    This can change the logic required to get through dungeons and caves.
+    """
+    internal_name = "enemizer_location_logic"
+    display_name = "Enemizer Location Logic"
+
+
+class EnemizerMaxCrayonRequirement(Range):
+    """
+    What percentage of crayons in the pool are required to logically tackle the hardest enemies and bosses?
+    This is rounded down, and the amount of required crayons become Progression items in the pool.
+    Set to 0 to disable.
+    """
+    internal_name = "enemizer_max_crayon_requirement"
+    display_name = "Enemizer Max Crayon Requirement"
+    range_start = 0,
+    range_end = 100
+    default = 75
+
+
+class EnemizerMinimumRollRequirement(Range):
+    """
+    Minimum tier that the ability to roll is required to fight enemies.
+    Bosses always require roll.
+    Set to 6 to disable.
+    """
+    internal_name = "enemizer_minimum_roll_requirement"
+    display_name = "Enemizer Minimum Roll Tier"
+    range_start = 0,
+    range_end = 6
+    default = 3
+
 
 class MajorDungeonSkips(Toggle):
     """
@@ -363,7 +449,7 @@ class LockpicksInPool(Range):
     internal_name = "lockpicks_in_pool"
     display_name = "Lockpicks In Pool"
     range_start = 0
-    range_end = 24
+    range_end = 73
     default = 12
 
 
@@ -374,8 +460,20 @@ class CrayonsInPool(Range):
     internal_name = "crayons_in_pool"
     display_name = "Crayons In Pool"
     range_start = 0
-    range_end = 20
+    range_end = 60
     default = 20
+
+
+class CursedCrayons(Range):
+    """
+    Removes an amount of health you start with, and adds extra crayons to the pool to compensate
+    (on top of the Crayons in Pool setting, allowing up to 79 crayons total)
+    """
+    internal_name = "cursed_crayons"
+    display_name = "Cursed Crayons"
+    range_start = 0
+    range_end = 19
+    default = 0
 
 
 class RemoveCards(Toggle):
@@ -460,6 +558,12 @@ class ID2Options(PerGameCommonOptions):
     roll_opens_chests: RollOpensChests
     early_weapon_choice: EarlyWeaponChoice
     # hint_setting: HintSetting
+    randomize_enemies: RandomizeEnemies
+    enemizer_difficulty: EnemizerDifficulty
+    enemizer_replace_all: EnemizerReplaceAll
+    enemizer_location_logic: EnemizerLocationLogic
+    enemizer_max_crayon_requirement: EnemizerMaxCrayonRequirement
+    enemizer_minimum_roll_requirement: EnemizerMinimumRollRequirement
     major_dungeon_skips: MajorDungeonSkips
     phasing_setting: PhasingSetting
     phasing_enemies: PhasingEnemies
@@ -468,6 +572,7 @@ class ID2Options(PerGameCommonOptions):
     start_with_all_warps: StartWithAllWarps
     lockpicks_in_pool: LockpicksInPool
     crayons_in_pool: CrayonsInPool
+    cursed_crayons: CursedCrayons
     remove_cards: RemoveCards
     trap_percentage: TrapPercentage
     super_trap_percentage: SuperTrapPercentage
@@ -481,6 +586,14 @@ id2_options_groups = [
         IncludeDreamDungeons,
         IncludeSuperSecrets,
         IncludeSecretSigns
+    ]),
+    OptionGroup("Enemizer Options", [
+        RandomizeEnemies,
+        EnemizerDifficulty,
+        EnemizerReplaceAll,
+        EnemizerLocationLogic,
+        EnemizerMaxCrayonRequirement,
+        EnemizerMinimumRollRequirement
     ]),
     OptionGroup("Phasing Options", [
         MajorDungeonSkips,
